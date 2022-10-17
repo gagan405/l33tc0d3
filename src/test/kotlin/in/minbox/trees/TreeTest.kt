@@ -8,7 +8,12 @@ class TreeTest {
     fun getHeight() {
         val tree: Tree = Tree.buildTree(intArrayOf(1,5,5,2,2,-1,3))
         Assertions.assertEquals(3, tree.depth)
-
         Assertions.assertEquals(3, Tree.getHeight(intArrayOf(1,5,5,2,2,-1,3)))
+    }
+
+    @Test
+    fun getLinkedListFromTree() {
+        val tree: Tree = Tree.buildTree(intArrayOf(1,5,5,2,2,-1,3))
+        tree.convertToLL()
     }
 }

@@ -1,5 +1,4 @@
 package `in`.minbox.trees
-
 object Tree {
     var root: TreeNode? = null
     var depth: Int = -1
@@ -25,6 +24,9 @@ object Tree {
      */
 
     fun buildTree(arr: IntArray): Tree {
+        root = null
+        depth = -1
+
         // first find the root
         var rootVal:Int? = null
         for ((index, value) in arr.withIndex()) {
@@ -99,6 +101,37 @@ object Tree {
 
         fun addChild(child: TreeNode) {
             children.add(child)
+        }
+    }
+
+    /*
+     * Converts a tree to a linked list representation
+     * All nodes end up having just 1 child
+     *
+     * Uses BFS
+     */
+    fun convertToLL() {
+        assert(root != null)
+
+        val queue = java.util.ArrayDeque<TreeNode>()
+        queue.add(root!!)
+
+        var prev = root
+        while (queue.isNotEmpty()) {
+            val node = queue.poll()
+
+            if (node.children.isNotEmpty()) {
+                for (treeNode in node.children) {
+                    queue.add(treeNode)
+                }
+            }
+
+            if (node != root) {
+                prev!!.children.clear()
+                prev.addChild(node)
+
+                prev = node
+            }
         }
     }
 
