@@ -10,7 +10,6 @@ object TreeUp {
     }
 
     fun connectSameLevelNodes(root: TreeNode) {
-        assert(root != null) { "root cannot be null" }
         val marker = TreeNode(-1, mutableListOf(), null)
 
         val queue = java.util.ArrayDeque<TreeNode>()
