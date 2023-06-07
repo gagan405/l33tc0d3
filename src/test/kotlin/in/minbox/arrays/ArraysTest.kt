@@ -19,4 +19,20 @@ internal class ArraysTest {
         Arrays.rotate2(array, 3)
         assertArrayEquals(intArrayOf(5,6,7,1,2,3,4), array)
     }
+
+    @Test
+    fun continuousSubArraySum() {
+        val array = intArrayOf(23,2,4,6,7)
+        assertTrue(Arrays.checkSubarraySum(array, 6))
+    }
+
+    @Test
+    fun testProductExceptSelf() {
+        val array = intArrayOf(1,2,3,4)
+        val arr = Arrays.productExceptSelf(array)
+        for (i in arr)
+            println(i)
+    }
+
+
 }

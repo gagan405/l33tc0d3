@@ -43,4 +43,51 @@ object Arrays {
             e--
         }
     }
+
+
+    // Leetcode 238
+    fun productExceptSelf(nums: IntArray): IntArray {
+        val temp = IntArray(nums.size)
+        temp[0] = 1
+        for (i in 1 until temp.size) {
+            temp[i] = nums[i - 1] * temp[i - 1]
+        }
+        var runningProduct = nums[nums.size - 1]
+        for (i in temp.size - 2 downTo 0) {
+            temp[i] = runningProduct * temp[i]
+            runningProduct *= nums[i]
+        }
+        return temp
+    }
+
+
+
+    // Leetcode 532
+    // https://leetcode.com/problems/k-diff-pairs-in-an-array/
+    fun findPairs(nums: IntArray, k: Int): Int {
+        val map: MutableMap<Int, Int> = HashMap()
+        for (num in nums) map[num] = map.getOrDefault(num, 0) + 1
+        var result = 0
+        for (i in map.keys) if (k > 0 && map.containsKey(i + k) || k == 0 && map[i]!! > 1) result++
+        return result
+    }
+
+
+    fun checkSubarraySum(nums: IntArray, k: Int): Boolean {
+        val map: MutableMap<Int, Int> = HashMap()
+        map[0] = -1
+        var sum = 0
+        for (i in nums.indices) {
+            sum += nums[i]
+            if (k != 0) {
+                sum %= k
+            }
+            if (map.containsKey(sum)) {
+                if (i - map[sum]!! > 1) return true
+            } else {
+                map[sum] = i
+            }
+        }
+        return false
+    }
 }

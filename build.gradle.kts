@@ -16,6 +16,8 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation(kotlin("script-runtime"))
     implementation("in.minbox:KStringUtils:1.0-SNAPSHOT")
+    testImplementation("junit:junit:4.13.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
 }
 
 tasks.test {
