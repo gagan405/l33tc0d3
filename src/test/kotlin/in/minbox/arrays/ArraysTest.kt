@@ -34,5 +34,12 @@ internal class ArraysTest {
             println(i)
     }
 
+    @Test
+    fun testPlusOne() {
+        assertArrayEquals(intArrayOf(1, 2, 3, 5), JArrays.plusOne(intArrayOf(1,2,3,4)))
+        assertArrayEquals(intArrayOf(2, 0, 0), JArrays.plusOne(intArrayOf(1, 9, 9)))
+        assertArrayEquals(intArrayOf(1), JArrays.plusOne(intArrayOf(0)))
+    }
+
 
 }

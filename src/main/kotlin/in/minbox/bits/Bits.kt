@@ -5,7 +5,7 @@ object Bits {
     // LeetCode 190
     fun reverseBinary(n : Int): Int {
         var y = 0
-        var z: Int = x
+        var z: Int = n
 
         for (count in 1..32) {
             y = y or (z and 1)

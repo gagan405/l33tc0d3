@@ -10,4 +10,10 @@ internal class StringsTest {
         assertEquals("holle", Strings.reverseVowels("hello"));
     }
 
+    @Test
+    fun multiply() {
+        val string = JStrings.multiply("99", "99")
+        println(string)
+    }
+
 }
