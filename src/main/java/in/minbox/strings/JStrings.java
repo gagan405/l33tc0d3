@@ -1,7 +1,5 @@
 package in.minbox.strings;
 
-import java.util.Arrays;
-
 public class JStrings {
     // https://leetcode.com/problems/multiply-strings/description/
     public static String multiply(String num1, String num2) {

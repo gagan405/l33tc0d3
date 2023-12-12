@@ -13,7 +13,7 @@ internal class StringsTest {
     @Test
     fun multiply() {
         val string = JStrings.multiply("99", "99")
-        println(string)
+        assertEquals("9801", string)
     }
 
 }
