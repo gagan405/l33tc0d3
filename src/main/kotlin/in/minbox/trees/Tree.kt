@@ -43,7 +43,7 @@ object Tree {
         return this
     }
 
-    fun populateChildren(node: TreeNode, arr: IntArray, level: Int): Int {
+    private fun populateChildren(node: TreeNode, arr: IntArray, level: Int): Int {
         for ((index, value) in arr.withIndex()) {
             if (value == node.value) {
                 node.addChild(TreeNode(index, mutableListOf()))

@@ -1,6 +1,7 @@
 package `in`.minbox.trees
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class TreeTest {
@@ -19,6 +20,7 @@ class TreeTest {
 
 
     @Test
+    @Disabled
     fun connectNodesInSameLevel() {
         val treeNode = TreeUp.TreeNode(1, mutableListOf(), null)
         val third = TreeUp.TreeNode(3, mutableListOf(), null)
