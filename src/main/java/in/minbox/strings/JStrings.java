@@ -21,4 +21,31 @@ public class JStrings {
         }
         return stringBuilder.length() == 0 ? "0" : stringBuilder.toString();
     }
+
+    public static String removeDuplicatesAndReturnLexicographic(String s) {
+        int[] count = new int[26];
+        int pos = 0;
+
+        // first get the count of all chars
+        // O(n)
+        for (int i = 0; i < s.length(); i++) {
+            count[s.charAt(i) - 'a']++;
+        }
+
+        // get the smallest alphabet position: smallest or unique whichever is earlier
+        // O(n)
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) < s.charAt(pos)) {
+                pos = i;
+            }
+            // check if this is the only occurrence
+            if (--count[s.charAt(i) - 'a'] == 0) break;
+        }
+
+        // return the smallest char + rest of the string worked on recursively
+        // replaceAll - O(n)
+        return s.length() == 0 ? "":
+                s.charAt(pos) + removeDuplicatesAndReturnLexicographic(s.substring(pos + 1)
+                        .replaceAll(String.valueOf(s.charAt(pos)), ""));
+    }
 }

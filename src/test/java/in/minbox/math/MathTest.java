@@ -1,8 +1,11 @@
 package in.minbox.math;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MathTest {
 
@@ -15,5 +18,10 @@ class MathTest {
         for (int[] row : matrix){
             System.out.println(Arrays.toString(row));
         }
+    }
+
+    @Test
+    void testTargetSum() {
+        assertEquals(5, new Math().findTargetSumWays(new int[]{1,2,3}, 6));
     }
 }
