@@ -22,6 +22,6 @@ class MathTest {
 
     @Test
     void testTargetSum() {
-        assertEquals(5, new Math().findTargetSumWays(new int[]{1,2,3}, 6));
+        assertEquals(1, new Math().findTargetSumWays(new int[]{1,2,3}, 6));
     }
 }
