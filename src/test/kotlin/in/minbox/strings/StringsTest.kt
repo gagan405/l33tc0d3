@@ -16,4 +16,17 @@ internal class StringsTest {
         assertEquals("9801", string)
     }
 
+    @Test
+    fun countStickers() {
+        val stickers = JStrings.minStickers(arrayOf("with","example","science"), "thehat")
+        assertEquals(3, stickers)
+    }
+
+    @Test
+    fun getHash() {
+        val hash = JStrings.getHash("hello")
+        assertEquals("axeeh", hash)
+
+        assertEquals("abcd", JStrings.getHash("abcd"))
+    }
 }

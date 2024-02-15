@@ -1,6 +1,5 @@
 package in.minbox.math;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -18,6 +17,12 @@ class MathTest {
         for (int[] row : matrix){
             System.out.println(Arrays.toString(row));
         }
+    }
+
+    @Test
+    void minPathSum() {
+        int[][] grid = new int[][]{{1,3,1},{1,5,1},{4,2,1}};
+        assertEquals(7, new Math().minPathSum(grid));
     }
 
     @Test

@@ -6,6 +6,7 @@ object SubArray {
 
     // solves problem 1590
     fun minSubArrayWithSum(nums: IntArray, targetDivisor: Int): Int {
+
         val diffFromTarget = getSumModuloN(nums, targetDivisor)
         if (diffFromTarget == 0) return 0
 
