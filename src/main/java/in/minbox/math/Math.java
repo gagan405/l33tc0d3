@@ -13,7 +13,7 @@ public class Math {
         }
     }
 
-    public int findTargetSumWays(int[] nums, int S) {
+    public int findTargetSumWays(int[] nums, int s) {
         int total = Arrays.stream(nums).sum();
         int[][] dp = new int[nums.length][2 * total + 1];
         dp[0][nums[0] + total] = 1;
@@ -28,7 +28,7 @@ public class Math {
             }
         }
 
-        return java.lang.Math.abs(S) > total ? 0 : dp[nums.length - 1][S + total];
+        return java.lang.Math.abs(s) > total ? 0 : dp[nums.length - 1][s + total];
     }
 
     private void swap(int[][] matrix, int toi, int toj, int what, int count) {
