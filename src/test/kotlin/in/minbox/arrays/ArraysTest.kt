@@ -1,8 +1,9 @@
 package `in`.minbox.arrays
 
+import org.junit.jupiter.api.Assertions.assertArrayEquals
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 
 internal class ArraysTest {
 
@@ -44,5 +45,10 @@ internal class ArraysTest {
     @Test
     fun testPartition() {
         assertEquals(84, JArrays.maxSumAfterPartitioning(intArrayOf(1,15,7,9,2,5,10), 3))
+    }
+
+    @Test
+    fun testPermutation() {
+        assertEquals(8, JArrays.permute(intArrayOf(1, 2, 3)).size)
     }
 }

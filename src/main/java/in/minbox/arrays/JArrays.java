@@ -1,5 +1,8 @@
 package in.minbox.arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class JArrays {
 
     // https://leetcode.com/problems/plus-one/description/
@@ -40,6 +43,27 @@ public class JArrays {
             }
         }
         return dp[0];
+    }
+
+    // 46
+    // #backtrack #permutations
+    // https://leetcode.com/problems/permutations/
+    public static List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> list = new ArrayList<>();
+        java.util.Arrays.sort(nums);
+        backtrack(list, new ArrayList<>(), nums, 0);
+        return list;
+    }
+
+    private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, int start){
+        list.add(new ArrayList<>(tempList));
+
+        for(int i = start; i < nums.length; i++){
+            if(i > start && nums[i] == nums[i-1]) continue; // skip duplicates
+            tempList.add(nums[i]);
+            backtrack(list, tempList, nums, i + 1);
+            tempList.remove(tempList.size() - 1);
+        }
     }
 
 }
