@@ -44,25 +44,45 @@ public class JArrays {
         }
         return dp[0];
     }
-
-    // 46
-    // #backtrack #permutations
-    // https://leetcode.com/problems/permutations/
-    public static List<List<Integer>> permute(int[] nums) {
+    public static List<List<Integer>> subset(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
         java.util.Arrays.sort(nums);
-        backtrack(list, new ArrayList<>(), nums, 0);
+        backtrackSubset(list, new ArrayList<>(), nums, 0);
         return list;
     }
 
-    private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums, int start){
+    private static void backtrackSubset(List<List<Integer>> list, List<Integer> tempList, int [] nums, int start){
         list.add(new ArrayList<>(tempList));
 
         for(int i = start; i < nums.length; i++){
             if(i > start && nums[i] == nums[i-1]) continue; // skip duplicates
             tempList.add(nums[i]);
-            backtrack(list, tempList, nums, i + 1);
+            backtrackSubset(list, tempList, nums, i + 1);
             tempList.remove(tempList.size() - 1);
+        }
+    }
+
+    // 46
+    // #backtrack #permutations
+    // https://leetcode.com/problems/permutations/
+    public static List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> ans = new ArrayList<>();
+        backtrackPermute(new ArrayList<>(), ans, nums);
+        return ans;
+    }
+
+    public static void backtrackPermute(List<Integer> curr, List<List<Integer>> ans, int[] nums) {
+        if (curr.size() == nums.length) {
+            ans.add(new ArrayList<>(curr));
+            return;
+        }
+
+        for (int num: nums) {
+            if (!curr.contains(num)) {
+                curr.add(num);
+                backtrackPermute(curr, ans, nums);
+                curr.remove(curr.size() - 1);
+            }
         }
     }
 

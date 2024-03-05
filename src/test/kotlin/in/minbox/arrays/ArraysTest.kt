@@ -48,7 +48,12 @@ internal class ArraysTest {
     }
 
     @Test
-    fun testPermutation() {
-        assertEquals(8, JArrays.permute(intArrayOf(1, 2, 3)).size)
+    fun testSubset() {
+        assertEquals(8, JArrays.subset(intArrayOf(1, 2, 3)).size)
+    }
+
+    @Test
+    fun testPermute() {
+        assertEquals(6, JArrays.permute(intArrayOf(1, 2, 3)).size)
     }
 }
