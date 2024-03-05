@@ -41,5 +41,8 @@ internal class ArraysTest {
         assertArrayEquals(intArrayOf(1), JArrays.plusOne(intArrayOf(0)))
     }
 
-
+    @Test
+    fun testPartition() {
+        assertEquals(84, JArrays.maxSumAfterPartitioning(intArrayOf(1,15,7,9,2,5,10), 3))
+    }
 }

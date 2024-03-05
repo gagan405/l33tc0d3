@@ -3,6 +3,7 @@ package in.minbox.bits;
 public class BitsJ {
 
     // LeetCode 190
+    // bit-manipulation
     public static int reverseBinary(int x) {
         int y = 0;
         int z = x;
