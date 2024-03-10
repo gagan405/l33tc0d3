@@ -1,6 +1,8 @@
 package in.minbox.arrays;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 public class JArrays {
@@ -84,6 +86,30 @@ public class JArrays {
                 curr.remove(curr.size() - 1);
             }
         }
+    }
+
+
+    // 1762
+    // https://leetcode.com/problems/buildings-with-an-ocean-view/description/
+    // #arrays #stack
+    public static int[] findBuildings(int[] heights) {
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        for (int i = heights.length - 1; i >= 0; i--) {
+            if (stack.isEmpty() || heights[i] > heights[stack.peek()]) {
+                stack.push(i);
+            }
+        }
+
+        int[] result = new int[stack.size()];
+        int resIdx = 0;
+
+        while (!stack.isEmpty()) {
+            result[resIdx] = stack.pop();
+            resIdx++;
+        }
+
+        return result;
     }
 
 }

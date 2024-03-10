@@ -56,4 +56,9 @@ internal class ArraysTest {
     fun testPermute() {
         assertEquals(6, JArrays.permute(intArrayOf(1, 2, 3)).size)
     }
+
+    @Test
+    fun testBuildingsWithOceanView() {
+        assertArrayEquals(intArrayOf(0,2,3), JArrays.findBuildings(intArrayOf(4,2,3,1)))
+    }
 }
