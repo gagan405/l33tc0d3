@@ -28,6 +28,13 @@ internal class ArraysTest {
     }
 
     @Test
+    fun carFleet() {
+        val array = intArrayOf(10,8,0,5,3)
+        assertEquals(3, Arrays.carFleet(12, array, intArrayOf(2,4,1,1,3)))
+        assertEquals(1, Arrays.carFleet(100, intArrayOf(0,2,4), intArrayOf(4,2,1)))
+    }
+
+    @Test
     fun testProductExceptSelf() {
         val array = intArrayOf(1,2,3,4)
         val arr = Arrays.productExceptSelf(array)

@@ -90,4 +90,27 @@ object Arrays {
         }
         return false
     }
+
+    fun carFleet(target: Int, position: IntArray, speed: IntArray): Int {
+        var res = 0
+        // we create an array where we setup the expected time of arrival at the target, for each position
+        // for example: target 100; cars:[0, 2] speed : [4, 2]
+        // times will be : [25, 0, 49]
+        val timeArr = DoubleArray(target)
+        for (i in position.indices) {
+            timeArr[position[i]] = (target - position[i]).toDouble() / speed[i]
+        }
+        // since a faster car is stuck with a slower one, we traverse the timeArray backwards and make the faster ones
+        // slower. In above case [25, 0, 49]; even if the car at position 0 can ideally reach the destination sooner,
+        // it will get stuck with the slow moving traffic ahead, so we would consider it as single fleet.
+        var prev = 0.0
+        for (i in target - 1 downTo 0) {
+            val cur = timeArr[i]
+            if (cur > prev) {
+                prev = cur
+                res++
+            }
+        }
+        return res
+    }
 }
